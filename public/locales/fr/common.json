@@ -1,0 +1,145 @@
+{
+    "pages": {
+        "login": {
+            "title": "Connectez-vous à votre compte",
+            "signin": "Se connecter",
+            "signup": "S'inscrire",
+            "divider": "ou",
+            "fields": {
+                "email": "Adresse e-mail",
+                "password": "Mot de passe"
+            },
+            "errors": {
+                "validEmail": "Adresse e-mail invalide"
+            },
+            "buttons": {
+                "submit": "Se connecter",
+                "forgotPassword": "Mot de passe oublié ?",
+                "noAccount": "Vous n'avez pas de compte ?",
+                "rememberMe": "Se souvenir de moi"
+            }
+        },
+        "forgotPassword": {
+            "title": "Mot de passe oublié ?",
+            "fields": {
+                "email": "Adresse e-mail"
+            },
+            "errors": {
+                "validEmail": "Adresse e-mail invalide"
+            },
+            "buttons": {
+                "submit": "Envoyer les instructions de réinitialisation"
+            }
+        },
+        "register": {
+            "title": "Inscrivez-vous pour créer votre compte",
+            "fields": {
+                "email": "Adresse e-mail",
+                "password": "Mot de passe"
+            },
+            "errors": {
+                "validEmail": "Adresse e-mail invalide"
+            },
+            "buttons": {
+                "submit": "S'inscrire",
+                "haveAccount": "Vous avez déjà un compte ?"
+            }
+        },
+        "updatePassword": {
+            "title": "Modifier le mot de passe",
+            "fields": {
+                "password": "Nouveau mot de passe",
+                "confirmPassword": "Confirmer le nouveau mot de passe"
+            },
+            "errors": {
+                "confirmPasswordNotMatch": "Les mots de passe ne correspondent pas"
+            },
+            "buttons": {
+                "submit": "Mettre à jour"
+            }
+        },
+        "error": {
+            "404": "Désolé, la page que vous avez visitée n'existe pas.",
+            "info": "Vous avez peut-être oublié d'ajouter le composant {{action}} à la ressource {{resource}}.",
+            "resource404": "Êtes-vous sûr(e) d'avoir créé la ressource {{resource}} ?",
+            "backHome": "Retourner à la page d'accueil"
+        }
+    },
+    "actions": {
+        "list": "Liste",
+        "create": "Créer",
+        "edit": "Modifier",
+        "show": "Afficher"
+    },
+    "buttons": {
+        "create": "Créer",
+        "save": "Enregistrer",
+        "logout": "Se déconnecter",
+        "delete": "Supprimer",
+        "edit": "Modifier",
+        "cancel": "Annuler",
+        "confirm": "Êtes-vous sûr(e) ?",
+        "filter": "Filtrer",
+        "clear": "Effacer",
+        "refresh": "Actualiser",
+        "show": "Afficher",
+        "undo": "Annuler",
+        "import": "Importer",
+        "clone": "Dupliquer",
+        "notAccessTitle": "Vous n'avez pas accès"
+    },
+    "warnWhenUnsavedChanges": "Êtes-vous sûr(e) de vouloir quitter ? Vous avez des changements non enregistrés.",
+    "notifications": {
+        "success": "Succès",
+        "error": "Erreur (code d'état : {{statusCode}})",
+        "undoable": "Vous avez {{seconds}} secondes pour annuler",
+        "createSuccess": "{{resource}} créé(e) avec succès",
+        "createError": "Erreur lors de la création de {{resource}} (code d'état : {{statusCode}})",
+        "deleteSuccess": "{{resource}} supprimé(e) avec succès",
+        "deleteError": "Erreur lors de la suppression de {{resource}} (code d'état : {{statusCode}})",
+        "editSuccess": "{{resource}} modifié(e) avec succès",
+        "editError": "Erreur lors de la modification de {{resource}} (code d'état : {{statusCode}})",
+        "importProgress": "Importation en cours : {{processed}}/{{total}}"
+    },
+    "loading": "Chargement en cours",
+    "tags": {
+        "clone": "Dupliquer"
+    },
+    "dashboard": {
+        "title": "Tableau de bord"
+    },
+    "blog_posts": {
+        "blog_posts": "Articles de blog",
+        "fields": {
+            "id": "Id",
+            "title": "Titre",
+            "content": "Contenu",
+            "status": "Statut",
+            "category": "Catégorie",
+            "createdAt": "Date de création"
+        }
+    },
+    "titles": {
+        "create": "Créer un article de blog",
+        "edit": "Modifier un article de blog",
+        "list": "Liste des articles de blog",
+        "show": "Afficher un article de blog"
+    },
+    "categories": {
+        "categories": "Catégories",
+        "fields": {
+            "id": "Id",
+            "title": "Titre",
+            "createdAt": "Date de création"
+        },
+        "titles": {
+            "create": "Créer une catégorie",
+            "edit": "Modifier une catégorie",
+            "list": "Liste des catégories",
+            "show": "Afficher une catégorie"
+        }
+    },
+    "table": {
+        "actions": "Actions"
+    }
+}
