@@ -31,6 +31,8 @@ import {
   CategoryEdit,
   CategoryShow,
 } from "pages/categories";
+import { Utilisateurs } from "pages/demo/utilisateurs";
+import { Home } from "pages/demo/home";
 import { AuthPage } from "pages/auth";
 import { supabaseClient } from "utility";
 import { ColorModeContextProvider } from "./contexts/color-mode";
@@ -60,6 +62,10 @@ function App() {
             i18nProvider={i18nProvider}
             resources={[
               {
+                name: "tableau_de_bord",
+                list: "/demo/home"
+              },
+              {
                 name: "blog_posts",
                 list: "/blog-posts",
                 create: "/blog-posts/create",
@@ -79,6 +85,10 @@ function App() {
                   canDelete: true,
                 },
               },
+              {
+                name: "utilisateurs",
+                list: "/demo/utilisateurs"
+              },
             ]}
             options={{
               syncWithLocation: true,
@@ -97,8 +107,9 @@ function App() {
               >
                 <Route
                   index
-                  element={<NavigateToResource resource="blog_posts" />}
+                  element={<NavigateToResource resource="tableau_de_bord" />}
                 />
+                <Route path="/demo/home" element={<Home/>} />
                 <Route path="/blog-posts">
                   <Route index element={<BlogPostList />} />
                   <Route path="create" element={<BlogPostCreate />} />
@@ -111,6 +122,7 @@ function App() {
                   <Route path="edit/:id" element={<CategoryEdit />} />
                   <Route path="show/:id" element={<CategoryShow />} />
                 </Route>
+                <Route path="/demo/utilisateurs" element={<Utilisateurs/>} />
               </Route>
               <Route
                 element={
