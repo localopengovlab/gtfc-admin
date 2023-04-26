@@ -34,7 +34,8 @@ import {
 import { Utilisateurs } from "pages/demo/utilisateurs";
 import { Home } from "pages/demo/home";
 import { AuthPage } from "pages/auth";
-import { supabaseClient } from "utility";
+import { UserList, UserCreate } from "pages/users";
+import { supabaseClient, supabaseGtfc } from "utility";
 import { ColorModeContextProvider } from "./contexts/color-mode";
 import { Header } from "./components/header";
 import authProvider from "./authProvider";
@@ -54,7 +55,10 @@ function App() {
       <RefineKbarProvider>
         <ColorModeContextProvider>
           <Refine
-            dataProvider={dataProvider(supabaseClient)}
+            dataProvider={{
+              default:dataProvider(supabaseClient),
+              gtfc: dataProvider(supabaseGtfc)
+            }}
             liveProvider={liveProvider(supabaseClient)}
             authProvider={authProvider}
             routerProvider={routerBindings}
@@ -88,6 +92,14 @@ function App() {
               {
                 name: "utilisateurs",
                 list: "/demo/utilisateurs"
+              },
+              {
+                name: "users",
+                list: "/users",
+                create: "/users/create",
+                meta: {
+                  dataProviderName: "gtfc",
+                },
               },
             ]}
             options={{
@@ -123,6 +135,10 @@ function App() {
                   <Route path="show/:id" element={<CategoryShow />} />
                 </Route>
                 <Route path="/demo/utilisateurs" element={<Utilisateurs/>} />
+                <Route path="/users">
+                  <Route index element={<UserList />} />
+                  <Route path="create" element={<UserCreate />} />
+                </Route>
               </Route>
               <Route
                 element={

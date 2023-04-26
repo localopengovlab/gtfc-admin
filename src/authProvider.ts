@@ -1,13 +1,13 @@
 import { AuthBindings } from "@refinedev/core";
 
-import { supabaseClient } from "utility";
+import { supabaseGtfc } from "utility";
 
 const authProvider: AuthBindings = {
   login: async ({ email, password, providerName }) => {
     // sign in with oauth
     try {
       if (providerName) {
-        const { data, error } = await supabaseClient.auth.signInWithOAuth({
+        const { data, error } = await supabaseGtfc.auth.signInWithOAuth({
           provider: providerName,
         });
 
@@ -27,7 +27,7 @@ const authProvider: AuthBindings = {
       }
 
       // sign in with email and password
-      const { data, error } = await supabaseClient.auth.signInWithPassword({
+      const { data, error } = await supabaseGtfc.auth.signInWithPassword({
         email,
         password,
       });
@@ -62,7 +62,7 @@ const authProvider: AuthBindings = {
   },
   register: async ({ email, password }) => {
     try {
-      const { data, error } = await supabaseClient.auth.signUp({
+      const { data, error } = await supabaseGtfc.auth.signUp({
         email,
         password,
       });
@@ -97,7 +97,7 @@ const authProvider: AuthBindings = {
   },
   forgotPassword: async ({ email }) => {
     try {
-      const { data, error } = await supabaseClient.auth.resetPasswordForEmail(
+      const { data, error } = await supabaseGtfc.auth.resetPasswordForEmail(
         email,
         {
           redirectTo: `${window.location.origin}/update-password`,
@@ -133,7 +133,7 @@ const authProvider: AuthBindings = {
   },
   updatePassword: async ({ password }) => {
     try {
-      const { data, error } = await supabaseClient.auth.updateUser({
+      const { data, error } = await supabaseGtfc.auth.updateUser({
         password,
       });
 
@@ -165,7 +165,7 @@ const authProvider: AuthBindings = {
     };
   },
   logout: async () => {
-    const { error } = await supabaseClient.auth.signOut();
+    const { error } = await supabaseGtfc.auth.signOut();
 
     if (error) {
       return {
@@ -185,7 +185,7 @@ const authProvider: AuthBindings = {
   },
   check: async () => {
     try {
-      const { data } = await supabaseClient.auth.getSession();
+      const { data } = await supabaseGtfc.auth.getSession();
       const { session } = data;
 
       if (!session) {
@@ -216,7 +216,7 @@ const authProvider: AuthBindings = {
     };
   },
   getPermissions: async () => {
-    const user = await supabaseClient.auth.getUser();
+    const user = await supabaseGtfc.auth.getUser();
 
     if (user) {
       return user.data.user?.role;
@@ -225,7 +225,7 @@ const authProvider: AuthBindings = {
     return null;
   },
   getIdentity: async () => {
-    const { data } = await supabaseClient.auth.getUser();
+    const { data } = await supabaseGtfc.auth.getUser();
 
     if (data?.user) {
       return {
