@@ -34,6 +34,7 @@ import {
 import { Utilisateurs } from "pages/demo/utilisateurs";
 import { Home } from "pages/demo/home";
 import { AuthPage } from "pages/auth";
+import { GoogleOutlined } from "@ant-design/icons";
 import { UserList, UserCreate } from "pages/users";
 import { supabaseClient, supabaseGtfc } from "utility";
 import { ColorModeContextProvider } from "./contexts/color-mode";
@@ -152,12 +153,17 @@ function App() {
                   element={
                     <AuthPage
                       type="login"
-                      formProps={{
-                        initialValues: {
-                          email: "info@refine.dev",
-                          password: "refine-supabase",
+                      providers={[
+                        {
+                          name: "google",
+                          label: "Connectez-vous avec Google",
+                          icon: (
+                              <GoogleOutlined
+                                  style={{ fontSize: 18, lineHeight: 0 }}
+                              />
+                          ),
                         },
-                      }}
+                      ]}
                     />
                   }
                 />
