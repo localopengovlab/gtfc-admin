@@ -19,24 +19,11 @@ import routerBindings, {
   UnsavedChangesNotifier,
 } from "@refinedev/react-router-v6";
 import { useTranslation } from "react-i18next";
-import {
-  BlogPostList,
-  BlogPostCreate,
-  BlogPostEdit,
-  BlogPostShow,
-} from "pages/blog-posts";
-import {
-  CategoryList,
-  CategoryCreate,
-  CategoryEdit,
-  CategoryShow,
-} from "pages/categories";
-import { Utilisateurs } from "pages/demo/utilisateurs";
 import { Home } from "pages/demo/home";
 import { AuthPage } from "pages/auth";
 import { GoogleOutlined } from "@ant-design/icons";
-import { UserList, UserCreate } from "pages/users";
-import { supabaseClient, supabaseGtfc } from "utility";
+import { UserList } from "pages/users";
+import { supabaseGtfc } from "utility";
 import { ColorModeContextProvider } from "./contexts/color-mode";
 import { Header } from "./components/header";
 import authProvider from "./authProvider";
@@ -56,11 +43,8 @@ function App() {
       <RefineKbarProvider>
         <ColorModeContextProvider>
           <Refine
-            dataProvider={{
-              default:dataProvider(supabaseClient),
-              gtfc: dataProvider(supabaseGtfc)
-            }}
-            liveProvider={liveProvider(supabaseClient)}
+            dataProvider={dataProvider(supabaseGtfc)}
+            liveProvider={liveProvider(supabaseGtfc)}
             authProvider={authProvider}
             routerProvider={routerBindings}
             notificationProvider={notificationProvider}
@@ -71,36 +55,8 @@ function App() {
                 list: "/demo/home"
               },
               {
-                name: "blog_posts",
-                list: "/blog-posts",
-                create: "/blog-posts/create",
-                edit: "/blog-posts/edit/:id",
-                show: "/blog-posts/show/:id",
-                meta: {
-                  canDelete: true,
-                },
-              },
-              {
-                name: "categories",
-                list: "/categories",
-                create: "/categories/create",
-                edit: "/categories/edit/:id",
-                show: "/categories/show/:id",
-                meta: {
-                  canDelete: true,
-                },
-              },
-              {
-                name: "utilisateurs",
-                list: "/demo/utilisateurs"
-              },
-              {
                 name: "users",
-                list: "/users",
-                create: "/users/create",
-                meta: {
-                  dataProviderName: "gtfc",
-                },
+                list: "/utilisateurs",
               },
             ]}
             options={{
@@ -123,23 +79,7 @@ function App() {
                   element={<NavigateToResource resource="tableau_de_bord" />}
                 />
                 <Route path="/demo/home" element={<Home/>} />
-                <Route path="/blog-posts">
-                  <Route index element={<BlogPostList />} />
-                  <Route path="create" element={<BlogPostCreate />} />
-                  <Route path="edit/:id" element={<BlogPostEdit />} />
-                  <Route path="show/:id" element={<BlogPostShow />} />
-                </Route>
-                <Route path="/categories">
-                  <Route index element={<CategoryList />} />
-                  <Route path="create" element={<CategoryCreate />} />
-                  <Route path="edit/:id" element={<CategoryEdit />} />
-                  <Route path="show/:id" element={<CategoryShow />} />
-                </Route>
-                <Route path="/demo/utilisateurs" element={<Utilisateurs/>} />
-                <Route path="/users">
-                  <Route index element={<UserList />} />
-                  <Route path="create" element={<UserCreate />} />
-                </Route>
+                <Route path="/utilisateurs" element={<UserList />} />
               </Route>
               <Route
                 element={

@@ -23,6 +23,10 @@ type IUser = {
   id: number;
   name: string;
   avatar: string;
+  user_metadata: {
+    full_name: string;
+    avatar_url: string;
+  };
 };
 
 export const Header: React.FC = () => {
@@ -81,8 +85,8 @@ export const Header: React.FC = () => {
           defaultChecked={mode === "dark"}
         />
         <Space style={{ marginLeft: "8px" }} size="middle">
-          {user?.name && <Text strong>{user.name}</Text>}
-          {user?.avatar && <Avatar src={user?.avatar} alt={user?.name} />}
+          {user?.user_metadata.full_name && <Text strong>{user.user_metadata.full_name}</Text>}
+          {user?.user_metadata.avatar_url && <Avatar src={user?.user_metadata.avatar_url} alt={user?.user_metadata.full_name} />}
         </Space>
       </Space>
     </AntdLayout.Header>

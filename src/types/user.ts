@@ -5,4 +5,5 @@ export type TUser = {
     full_name: string;
     avatar_url: string;
     updated_at: string;
+    role: string;
 };
