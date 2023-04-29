@@ -60,11 +60,16 @@ const authProvider: AuthBindings = {
       },
     };
   },
-  register: async ({ email, password }) => {
+  register: async ({ email, password, full_name }) => {
     try {
       const { data, error } = await supabaseGtfc.auth.signUp({
         email,
         password,
+        options: {
+          data: {
+            full_name: full_name
+          },
+        }
       });
 
       if (error) {

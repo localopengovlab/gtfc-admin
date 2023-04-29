@@ -21,6 +21,7 @@ import routerBindings, {
 import { useTranslation } from "react-i18next";
 import { Home } from "pages/demo/home";
 import { AuthPage } from "pages/auth";
+import { RegisterPage } from "pages/auth/register";
 import { GoogleOutlined } from "@ant-design/icons";
 import { UserList } from "pages/users";
 import { supabaseGtfc } from "utility";
@@ -109,7 +110,7 @@ function App() {
                 />
                 <Route
                   path="/register"
-                  element={<AuthPage type="register" />}
+                  element={<RegisterPage />}
                 />
                 <Route
                   path="/forgot-password"
