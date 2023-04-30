@@ -2,13 +2,13 @@ lockfileVersion: 5.4
 
 specifiers:
   '@ant-design/icons': ^5.0.1
-  '@refinedev/antd': ^5.3.12
-  '@refinedev/cli': ^2.1.2
-  '@refinedev/core': ^4.5.8
-  '@refinedev/inferencer': ^3.1.4
+  '@refinedev/antd': ^5.13.2
+  '@refinedev/cli': ^2.5.3
+  '@refinedev/core': ^4.14.0
+  '@refinedev/inferencer': ^3.3.0
   '@refinedev/kbar': ^1.1.0
   '@refinedev/react-router-v6': ^4.1.0
-  '@refinedev/supabase': ^5.0.0
+  '@refinedev/supabase': ^5.3.0
   '@testing-library/jest-dom': ^5.16.4
   '@testing-library/react': ^13.1.1
   '@testing-library/user-event': ^14.1.1
@@ -30,13 +30,13 @@ specifiers:
 
 dependencies:
   '@ant-design/icons': 5.0.1_biqbaboplfbrettd7655fr4n2y
-  '@refinedev/antd': 5.5.2_kpatpsyznzpahnutr5v5zg5qty
-  '@refinedev/cli': 2.1.2_pofolu2o2erjq4lhyzl3hqovzq
-  '@refinedev/core': 4.7.3_ddal5w4bzhvnvvplv3twufcima
-  '@refinedev/inferencer': 3.1.7_c3d2vneiki5qez6nop2shnu4ku
-  '@refinedev/kbar': 1.1.0_bnajdxajvuspgrhaptacgmloma
-  '@refinedev/react-router-v6': 4.1.0_tjqi6eqipxggdt6dtxr7kdw5oe
-  '@refinedev/supabase': 5.1.0_@refinedev+core@4.7.3
+  '@refinedev/antd': 5.13.2_2ryt6f3pms66e6u7rz5qd4wyha
+  '@refinedev/cli': 2.5.3_pofolu2o2erjq4lhyzl3hqovzq
+  '@refinedev/core': 4.14.0_ddal5w4bzhvnvvplv3twufcima
+  '@refinedev/inferencer': 3.3.0_mru7nh2txoln6gvfzbkgq6kmdy
+  '@refinedev/kbar': 1.1.0_cgngb5ydpkqame3rvs3dxr3n5q
+  '@refinedev/react-router-v6': 4.1.0_qfmh5uvrjhk5hbdyw76cdaer2y
+  '@refinedev/supabase': 5.3.0_@refinedev+core@4.14.0
   antd: 5.4.0_biqbaboplfbrettd7655fr4n2y
   i18next: 20.6.1
   i18next-browser-languagedetector: 6.1.8
@@ -2375,8 +2375,8 @@ packages:
     resolution: {integrity: sha512-Ba7HmkFgfQxZqqaeIWWkNK0rEhpxVQHIoVyW1YDSkGsGIXzcaW4deC8B0pZrNSSyLTdIk7y+5olKt5+g0GmFIQ==}
     dev: false
 
-  /@refinedev/antd/5.5.2_kpatpsyznzpahnutr5v5zg5qty:
-    resolution: {integrity: sha512-yHfyPVp3OhoC4TWxO6GuquymZnDi4DVOf1JJhV633cp6Btr6zBri2zMxHetOt3y47XLejVwKuAKXelDQslyE+Q==}
+  /@refinedev/antd/5.13.2_2ryt6f3pms66e6u7rz5qd4wyha:
+    resolution: {integrity: sha512-z6UAAPyUjSgQ10o0O6Hs5MNHT+gE6c+SiNJhjNmA6pficozTXG9Y/44Dps3PrU6OzTQNTdlsg6cTr9MqzgwS2g==}
     peerDependencies:
       '@refinedev/core': ^4.0.0
       '@types/react': ^17.0.0 || ^18.0.0
@@ -2387,8 +2387,8 @@ packages:
     dependencies:
       '@ant-design/icons': 5.0.1_biqbaboplfbrettd7655fr4n2y
       '@ant-design/pro-layout': 7.8.3_mxarhxqjcqlcspet2rjm7zmpei
-      '@refinedev/core': 4.7.3_ddal5w4bzhvnvvplv3twufcima
-      '@refinedev/ui-types': 1.5.0_bnajdxajvuspgrhaptacgmloma
+      '@refinedev/core': 4.14.0_ddal5w4bzhvnvvplv3twufcima
+      '@refinedev/ui-types': 1.12.0_cgngb5ydpkqame3rvs3dxr3n5q
       '@tanstack/react-query': 4.29.1_biqbaboplfbrettd7655fr4n2y
       '@types/react': 18.0.33
       '@types/react-dom': 18.0.11
@@ -2405,8 +2405,8 @@ packages:
       - supports-color
     dev: false
 
-  /@refinedev/cli/2.1.2_pofolu2o2erjq4lhyzl3hqovzq:
-    resolution: {integrity: sha512-yNfxp3nqvxpznbqs5OI4Jz7AtftTPldQU3ZL1dItcMA7WDgBHpAnvEWSfGdYYFBHxSxrJJPtpoIPEtr53/dnZg==}
+  /@refinedev/cli/2.5.3_pofolu2o2erjq4lhyzl3hqovzq:
+    resolution: {integrity: sha512-QvPW66JEzgoSSAL4JBzjZqhxb6i+0hKeXlSrWrGEjin6QVlhe/9nJoAwt12aC6+ePPjB6VOj7TcYqC/rlebq3A==}
     hasBin: true
     dependencies:
       boxen: 5.1.2
@@ -2447,8 +2447,8 @@ packages:
       - utf-8-validate
     dev: false
 
-  /@refinedev/core/4.7.3_ddal5w4bzhvnvvplv3twufcima:
-    resolution: {integrity: sha512-xC8n/sBopOh1jjOYRMzbaHThkCgEBVSSV6H9IndTNkf1oGmVRNUMVXM1jh+lLNO4Jl/3HMQF3GJ4n4PICTgsdw==}
+  /@refinedev/core/4.14.0_ddal5w4bzhvnvvplv3twufcima:
+    resolution: {integrity: sha512-LEKMAWWbjGte7ZYiPDI1MTq4gE0VDfCsgMDZbG3f3+bPkqFPo7mDUH2bzAtL+wr6EqoknxbDEYywKxrzgW73qg==}
     peerDependencies:
       '@types/react': ^17.0.0 || ^18.0.0
       '@types/react-dom': ^17.0.0 || ^18.0.0
@@ -2473,8 +2473,8 @@ packages:
       - react-native
     dev: false
 
-  /@refinedev/inferencer/3.1.7_c3d2vneiki5qez6nop2shnu4ku:
-    resolution: {integrity: sha512-fjoJtd2ZwuNHvhSItkWA2wxBMBY6K08fOIgC4aEa8N6lPgHAh3uMRo7FycDE0kF6S6QRNo0ExpkNBbnuW79fng==}
+  /@refinedev/inferencer/3.3.0_mru7nh2txoln6gvfzbkgq6kmdy:
+    resolution: {integrity: sha512-Z4xNJyIrdJxK5x7RItTjbt5hWJuwJ2cOHKWJnp/6A7QgTYuR6+1XWVVoM0qAgDEIuErLozbcL4B4Z1Zs9UdTYg==}
     peerDependencies:
       '@ant-design/icons': ^5.0.1
       '@chakra-ui/react': ^2.5.1
@@ -2545,8 +2545,8 @@ packages:
     dependencies:
       '@aliemir/react-live': 4.0.0_react@18.2.0
       '@ant-design/icons': 5.0.1_biqbaboplfbrettd7655fr4n2y
-      '@refinedev/antd': 5.5.2_kpatpsyznzpahnutr5v5zg5qty
-      '@refinedev/core': 4.7.3_ddal5w4bzhvnvvplv3twufcima
+      '@refinedev/antd': 5.13.2_2ryt6f3pms66e6u7rz5qd4wyha
+      '@refinedev/core': 4.14.0_ddal5w4bzhvnvvplv3twufcima
       '@tabler/icons': 1.119.0_biqbaboplfbrettd7655fr4n2y
       '@types/react': 18.0.33
       '@types/react-dom': 18.0.11
@@ -2566,7 +2566,7 @@ packages:
       - supports-color
     dev: false
 
-  /@refinedev/kbar/1.1.0_bnajdxajvuspgrhaptacgmloma:
+  /@refinedev/kbar/1.1.0_cgngb5ydpkqame3rvs3dxr3n5q:
     resolution: {integrity: sha512-BnGhoyiRR1clHRKs9XnLEJkS6WoNJpZHg2r+Ez6iJpdtiaGnrz4+S9HN5XJukd57NCL/yt+CXD01SHlc3KrnPA==}
     engines: {node: '>=10'}
     peerDependencies:
@@ -2574,13 +2574,13 @@ packages:
       react: ^17.0.0 || ^18.0.0
       react-dom: ^17.0.0 || ^18.0.0
     dependencies:
-      '@refinedev/core': 4.7.3_ddal5w4bzhvnvvplv3twufcima
+      '@refinedev/core': 4.14.0_ddal5w4bzhvnvvplv3twufcima
       kbar: 0.1.0-beta.40_biqbaboplfbrettd7655fr4n2y
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
     dev: false
 
-  /@refinedev/react-router-v6/4.1.0_tjqi6eqipxggdt6dtxr7kdw5oe:
+  /@refinedev/react-router-v6/4.1.0_qfmh5uvrjhk5hbdyw76cdaer2y:
     resolution: {integrity: sha512-I6cjLX7vSrpI9i598aQV4eusD7uAeShuzhULKXXb9Ou/kcs+aLDjpICUJQqpEfhQg2mQTNt5i3xg6BpXDDHK6w==}
     engines: {node: '>=10'}
     peerDependencies:
@@ -2591,7 +2591,7 @@ packages:
       react-dom: ^17.0.0 || ^18.0.0
       react-router-dom: ^6.8.1
     dependencies:
-      '@refinedev/core': 4.7.3_ddal5w4bzhvnvvplv3twufcima
+      '@refinedev/core': 4.14.0_ddal5w4bzhvnvvplv3twufcima
       '@types/react': 18.0.33
       '@types/react-dom': 18.0.11
       qs: 6.11.1
@@ -2600,27 +2600,27 @@ packages:
       react-router-dom: 6.10.0_biqbaboplfbrettd7655fr4n2y
     dev: false
 
-  /@refinedev/supabase/5.1.0_@refinedev+core@4.7.3:
-    resolution: {integrity: sha512-LhK5vXCF3lqqBEoLBvelMW258rCE1PJyB5qKAStJMeL421yEc+U5FupzEzwTkkN95moU8Q4chR04j6j61+n+6w==}
+  /@refinedev/supabase/5.3.0_@refinedev+core@4.14.0:
+    resolution: {integrity: sha512-mIqQqAUYI93cAqfEoaWtzHjCkGCDSd5pGGj7ASob65JLTii7ULLYPfig1Fx07xKA5ybd8R5Pb3ppzNr/7zpe4g==}
     engines: {node: '>=10'}
     peerDependencies:
       '@refinedev/core': ^4.0.0
     dependencies:
-      '@refinedev/core': 4.7.3_ddal5w4bzhvnvvplv3twufcima
+      '@refinedev/core': 4.14.0_ddal5w4bzhvnvvplv3twufcima
       '@supabase/supabase-js': 2.15.0
     transitivePeerDependencies:
       - encoding
       - supports-color
     dev: false
 
-  /@refinedev/ui-types/1.5.0_bnajdxajvuspgrhaptacgmloma:
-    resolution: {integrity: sha512-KNYvW9jOYXpBWU62IYpKKfU1Uxx34n2kh0mmQRmQgTK0KF+bHa57KMuR0Pa9B65UZmjNzKyMWGHNzh7Qp9scZA==}
+  /@refinedev/ui-types/1.12.0_cgngb5ydpkqame3rvs3dxr3n5q:
+    resolution: {integrity: sha512-KRXvbtigZ5GAT1TL10g74eP15NDJYamjHonOxobsL67x6VrvC8ZXKr1bqYyNONqIG5uVqGdV0TZzTNeZiVq2qg==}
     peerDependencies:
       '@refinedev/core': ^4.0.0
       react: ^17.0.0 || ^18.0.0
       react-dom: ^17.0.0 || ^18.0.0
     dependencies:
-      '@refinedev/core': 4.7.3_ddal5w4bzhvnvvplv3twufcima
+      '@refinedev/core': 4.14.0_ddal5w4bzhvnvvplv3twufcima
       dayjs: 1.11.7
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
