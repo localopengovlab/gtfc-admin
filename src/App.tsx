@@ -27,7 +27,7 @@ import { UserList } from "pages/users";
 import { supabaseGtfc } from "utility";
 import { ColorModeContextProvider } from "./contexts/color-mode";
 import { Header } from "./components/header";
-import authProvider from "./authProvider";
+import { authProvider } from "providers";
 import { Title } from "./components/layout";
 
 function App() {

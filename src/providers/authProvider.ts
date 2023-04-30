@@ -2,7 +2,7 @@ import { AuthBindings } from "@refinedev/core";
 
 import { supabaseGtfc } from "utility";
 
-const authProvider: AuthBindings = {
+export const authProvider: AuthBindings = {
   login: async ({ email, password, providerName }) => {
     // sign in with oauth
     try {
@@ -242,5 +242,3 @@ const authProvider: AuthBindings = {
     return null;
   },
 };
-
-export default authProvider;
