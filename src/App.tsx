@@ -27,7 +27,7 @@ import { UserList } from "pages/users";
 import { supabaseGtfc } from "utility";
 import { ColorModeContextProvider } from "./contexts/color-mode";
 import { Header } from "./components/header";
-import { authProvider } from "providers";
+import { authProvider, accessControlProvider } from "providers";
 import { Title } from "./components/layout";
 
 function App() {
@@ -47,6 +47,7 @@ function App() {
             dataProvider={dataProvider(supabaseGtfc)}
             liveProvider={liveProvider(supabaseGtfc)}
             authProvider={authProvider}
+            accessControlProvider={accessControlProvider}
             routerProvider={routerBindings}
             notificationProvider={notificationProvider}
             i18nProvider={i18nProvider}

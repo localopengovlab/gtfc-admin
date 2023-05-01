@@ -223,8 +223,15 @@ export const authProvider: AuthBindings = {
   getPermissions: async () => {
     const user = await supabaseGtfc.auth.getUser();
 
-    if (user) {
-      return user.data.user?.role;
+    const { data: userData, error: userError } = await supabaseGtfc
+    .from('users')
+    .select('role')
+    .eq('id', user.data.user?.id);
+
+    if (userError) {
+      console.error(userError); // Handle error
+    } else {
+      return userData[0]?.role; // Handle retrieved user data
     }
 
     return null;
