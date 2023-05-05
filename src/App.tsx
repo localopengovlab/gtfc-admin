@@ -9,6 +9,7 @@ import {
   notificationProvider,
   ThemedLayout,
 } from "@refinedev/antd";
+import { AntdInferencer } from "@refinedev/inferencer/antd";
 import "@refinedev/antd/dist/reset.css";
 
 import { dataProvider, liveProvider } from "@refinedev/supabase";
@@ -57,6 +58,16 @@ function App() {
                 list: "/demo/home"
               },
               {
+                  name: "agenda",
+                  list: "/agenda",
+                  create: "/agenda/create",
+                  edit: "/agenda/edit/:id",
+                  show: "/agenda/show/:id",
+                  meta: {
+                      canDelete: true,
+                  },
+              },
+              {
                 name: "users",
                 list: "/utilisateurs",
               },
@@ -80,6 +91,28 @@ function App() {
                   index
                   element={<NavigateToResource resource="tableau_de_bord" />}
                 />
+                <Route
+                    index
+                    element={
+                        <NavigateToResource resource="samples" />
+                    }
+                />
+
+                <Route path="agenda">
+                  <Route index element={<AntdInferencer />} />
+                  <Route
+                      path="create"
+                      element={<AntdInferencer />}
+                  />
+                  <Route
+                      path="edit/:id"
+                      element={<AntdInferencer />}
+                  />
+                  <Route
+                      path="show/:id"
+                      element={<AntdInferencer />}
+                  />
+                </Route>
                 <Route path="/demo/home" element={<Home/>} />
                 <Route path="/utilisateurs" element={<UserList />} />
               </Route>
