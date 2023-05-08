@@ -21,12 +21,12 @@ export const adapter = new StringAdapter(`
   p, admin, users, (list)|(edit)
   p, admin, tableau_de_bord, list
   
-  p, admin, agenda, (list)|(create)
+  p, admin, agenda, (list)|(create)|(edit)|(show)
   p, admin, agenda/*, (edit)|(show)|(delete)
 
   p, editeur, tableau_de_bord, list
 
-  p, editeur, agenda, (list)|(create)
+  p, editeur, agenda, (list)|(show)|(create)
   p, editeur, agenda/*, (edit)|(show)
 
 `);

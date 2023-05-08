@@ -25,6 +25,7 @@ import { AuthPage } from "pages/auth";
 import { RegisterPage } from "pages/auth/register";
 import { GoogleOutlined } from "@ant-design/icons";
 import { UserList } from "pages/users";
+import { AgendaList } from 'pages/agenda'
 import { supabaseGtfc } from "utility";
 import { ColorModeContextProvider } from "./contexts/color-mode";
 import { Header } from "./components/header";
@@ -99,7 +100,7 @@ function App() {
                 />
 
                 <Route path="agenda">
-                  <Route index element={<AntdInferencer />} />
+                  <Route index element={<AgendaList />} />
                   <Route
                       path="create"
                       element={<AntdInferencer />}
