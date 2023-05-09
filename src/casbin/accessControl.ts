@@ -21,10 +21,22 @@ export const adapter = new StringAdapter(`
   p, admin, users, (list)|(edit)
   p, admin, tableau_de_bord, list
   
+  p, admin, reunion, list
+  p, admin, reunion/*, list
+  
   p, admin, agenda, (list)|(create)|(edit)|(show)
   p, admin, agenda/*, (edit)|(show)|(delete)
 
+  p, admin, lieu, (list)|(create)|(edit)
+  p, admin, lieu/*, (edit)|(show)|(delete)
+
+  p, admin, statut, (list)|(create)|(edit)
+  p, admin, statut/*, (edit)|(show)|(delete)
+
   p, editeur, tableau_de_bord, list
+
+  p, editeur, reunion, list
+  p, editeur, reunion/*, list
 
   p, editeur, agenda, (list)|(show)|(create)
   p, editeur, agenda/*, (edit)|(show)

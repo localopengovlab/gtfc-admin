@@ -59,14 +59,38 @@ function App() {
                 list: "/demo/home"
               },
               {
-                  name: "agenda",
-                  list: "/agenda",
-                  create: "/agenda/create",
-                  edit: "/agenda/edit/:id",
-                  show: "/agenda/show/:id",
-                  meta: {
-                      canDelete: true,
-                  },
+                name: "reunion",
+              },
+              {
+                name: "agenda",
+                list: "/reunion/agenda",
+                create: "/reunion/agenda/create",
+                edit: "/reunion/agenda/edit/:id",
+                show: "/reunion/agenda/show/:id",
+                meta: {
+                    canDelete: true,
+                    parent: "reunion"
+                },
+              },
+              {
+                name: "lieu",
+                list: "/reunion/lieu",
+                create: "/reunion/lieu/create",
+                edit: "/reunion/lieu/edit/:id",
+                meta: {
+                    parent: "reunion",
+                    canDelete: true,
+                },
+              },
+              {
+                name: "statut",
+                list: "/reunion/statut",
+                create: "/reunion/statut/create",
+                edit: "/reunion/statut/edit/:id",
+                meta: {
+                    parent: "reunion",
+                    canDelete: true,
+                },
               },
               {
                 name: "users",
@@ -98,21 +122,46 @@ function App() {
                         <NavigateToResource resource="samples" />
                     }
                 />
+                <Route path="reunion">
+                  <Route path="agenda">
+                    <Route index element={<AgendaList />} />
+                    <Route
+                        path="create"
+                        element={<AntdInferencer />}
+                    />
+                    <Route
+                        path="edit/:id"
+                        element={<AntdInferencer />}
+                    />
+                    <Route
+                        path="show/:id"
+                        element={<AntdInferencer />}
+                    />
+                  </Route>
 
-                <Route path="agenda">
-                  <Route index element={<AgendaList />} />
-                  <Route
-                      path="create"
-                      element={<AntdInferencer />}
-                  />
-                  <Route
-                      path="edit/:id"
-                      element={<AntdInferencer />}
-                  />
-                  <Route
-                      path="show/:id"
-                      element={<AntdInferencer />}
-                  />
+                    <Route path="lieu">
+                        <Route index element={<AntdInferencer />} />
+                        <Route
+                            path="create"
+                            element={<AntdInferencer />}
+                        />
+                        <Route
+                            path="edit/:id"
+                            element={<AntdInferencer />}
+                        />
+                    </Route>
+
+                    <Route path="statut">
+                        <Route index element={<AntdInferencer />} />
+                        <Route
+                            path="create"
+                            element={<AntdInferencer />}
+                        />
+                        <Route
+                            path="edit/:id"
+                            element={<AntdInferencer />}
+                        />
+                    </Route>
                 </Route>
                 <Route path="/demo/home" element={<Home/>} />
                 <Route path="/utilisateurs" element={<UserList />} />
