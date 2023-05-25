@@ -24,8 +24,20 @@ import { Home } from "pages/demo/home";
 import { AuthPage } from "pages/auth";
 import { RegisterPage } from "pages/auth/register";
 import { GoogleOutlined } from "@ant-design/icons";
-import { UserList } from "pages/users";
-import { AgendaList } from 'pages/agenda'
+import { 
+  UtilisateurList,
+  UtilisateurEdit,
+  StatutList,
+  StatutCreate,
+  StatutEdit,
+  LieuList,
+  LieuCreate,
+  LieuEdit,
+  BureauList,
+  BureauCreate,
+  BureauEdit
+} from "pages/reglage";
+import { AgendaList, AgendaCreate, AgendaEdit } from 'pages/agenda'
 import { supabaseGtfc } from "utility";
 import { ColorModeContextProvider } from "./contexts/color-mode";
 import { Header } from "./components/header";
@@ -60,6 +72,7 @@ function App() {
               },
               {
                 name: "reunion",
+                meta: { label: "Réunions" }
               },
               {
                 name: "agenda",
@@ -73,28 +86,50 @@ function App() {
                 },
               },
               {
-                name: "lieu",
-                list: "/reunion/lieu",
-                create: "/reunion/lieu/create",
-                edit: "/reunion/lieu/edit/:id",
+                name: "reglage",
+                meta: { label: "Réglages" }
+              },
+              {
+                name: "users",
+                list: "/reglage/utilisateurs",
+                edit: "/reglage/utilisateurs/edit/:id",
                 meta: {
-                    parent: "reunion",
+                    parent: "reglage",
+                    label: "Utilisateurs",
+                    canDelete: true,
+                },
+              },
+              {
+                name: "bureau",
+                list: "/reglage/bureau",
+                create: "/reglage/bureau/create",
+                edit: "/reglage/bureau/edit/:id",
+                meta: {
+                    parent: "reglage",
+                    label: "Bureaux",
+                    canDelete: true,
+                },
+              },
+              {
+                name: "lieu",
+                list: "/reglage/lieu",
+                create: "/reglage/lieu/create",
+                edit: "/reglage/lieu/edit/:id",
+                meta: {
+                    parent: "reglage",
+                    label: "Lieux",
                     canDelete: true,
                 },
               },
               {
                 name: "statut",
-                list: "/reunion/statut",
-                create: "/reunion/statut/create",
-                edit: "/reunion/statut/edit/:id",
+                list: "/reglage/statut",
+                create: "/reglage/statut/create",
+                edit: "/reglage/statut/edit/:id",
                 meta: {
-                    parent: "reunion",
+                    parent: "reglage",
                     canDelete: true,
                 },
-              },
-              {
-                name: "users",
-                list: "/utilisateurs",
               },
             ]}
             options={{
@@ -127,44 +162,60 @@ function App() {
                     <Route index element={<AgendaList />} />
                     <Route
                         path="create"
-                        element={<AntdInferencer />}
+                        element={<AgendaCreate />}
                     />
                     <Route
                         path="edit/:id"
-                        element={<AntdInferencer />}
+                        element={<AgendaEdit />}
                     />
                     <Route
                         path="show/:id"
                         element={<AntdInferencer />}
                     />
                   </Route>
-
-                    <Route path="lieu">
-                        <Route index element={<AntdInferencer />} />
-                        <Route
-                            path="create"
-                            element={<AntdInferencer />}
-                        />
-                        <Route
-                            path="edit/:id"
-                            element={<AntdInferencer />}
-                        />
-                    </Route>
-
-                    <Route path="statut">
-                        <Route index element={<AntdInferencer />} />
-                        <Route
-                            path="create"
-                            element={<AntdInferencer />}
-                        />
-                        <Route
-                            path="edit/:id"
-                            element={<AntdInferencer />}
-                        />
-                    </Route>
                 </Route>
                 <Route path="/demo/home" element={<Home/>} />
-                <Route path="/utilisateurs" element={<UserList />} />
+                <Route path="reglage">
+                  <Route path="utilisateurs">
+                    <Route index element={<UtilisateurList />} />
+                    <Route path="edit/:id" element={<UtilisateurEdit />} />
+                  </Route>
+
+                  <Route path="bureau">
+                    <Route index element={<BureauList />} />
+                    <Route
+                        path="create"
+                        element={<BureauCreate />}
+                    />
+                    <Route
+                        path="edit/:id"
+                        element={<BureauEdit />}
+                    />
+                  </Route>
+                  <Route path="lieu">
+                    <Route index element={<LieuList />} />
+                    <Route
+                        path="create"
+                        element={<LieuCreate />}
+                    />
+                    <Route
+                        path="edit/:id"
+                        element={<LieuEdit />}
+                    />
+                  </Route>
+
+                  <Route path="statut">
+                    <Route index element={<StatutList />} />
+                    <Route
+                        path="create"
+                        element={<StatutCreate />}
+                    />
+                    <Route
+                        path="edit/:id"
+                        element={<StatutEdit />}
+                    />
+                  </Route>
+                </Route>
               </Route>
               <Route
                 element={
