@@ -41,12 +41,12 @@ export const AgendaList: React.FC<IResourceComponentsProps> = () => {
                 <Table.Column
                     dataIndex={["debut"]}
                     title="Debut"
-                    render={(value: any) => <DateField value={value} />}
+                    render={(value: any) => <DateField value={value} format="LLL" />}
                 />
                 <Table.Column
                     dataIndex={["fin"]}
                     title="Fin"
-                    render={(value: any) => <DateField value={value} />}
+                    render={(value: any) => <DateField value={value} format="LLL" />}
                 />
                 <Table.Column dataIndex="titre" title="Titre" />
                 <Table.Column dataIndex="objectif" title="Objectif" />
