@@ -16,6 +16,7 @@
     "buffer": "^6.0.3",
     "casbin": "^5.26.1",
     "crypto-browserify": "^3.12.0",
+    "dayjs": "^1.11.7",
     "i18next": "^20.1.0",
     "i18next-browser-languagedetector": "^6.1.1",
     "i18next-xhr-backend": "^3.2.2",
