@@ -18,7 +18,11 @@ export const model = newModel(`
 `);
 
 export const adapter = new StringAdapter(`
-  p, admin, users, (list)|(edit)
+  p, admin, reglage, list
+  p, admin, reglage/*, list
+
+  p, admin, users, (list)|(edit)|(edit)|(delete)
+  p, admin, users/*, (edit)|(show)|(delete)
   p, admin, tableau_de_bord, list
   
   p, admin, reunion, list
@@ -27,10 +31,13 @@ export const adapter = new StringAdapter(`
   p, admin, agenda, (list)|(create)|(edit)|(show)
   p, admin, agenda/*, (edit)|(show)|(delete)
 
-  p, admin, lieu, (list)|(create)|(edit)
+  p, admin, bureau, (list)|(create)|(edit)|(delete)
+  p, admin, bureau/*, (edit)|(show)|(delete)
+
+  p, admin, lieu, (list)|(create)|(edit)|(delete)
   p, admin, lieu/*, (edit)|(show)|(delete)
 
-  p, admin, statut, (list)|(create)|(edit)
+  p, admin, statut, (list)|(create)|(edit)|(delete)
   p, admin, statut/*, (edit)|(show)|(delete)
 
   p, editeur, tableau_de_bord, list
