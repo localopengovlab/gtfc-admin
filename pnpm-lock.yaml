@@ -21,6 +21,7 @@ specifiers:
   buffer: ^6.0.3
   casbin: ^5.26.1
   crypto-browserify: ^3.12.0
+  dayjs: ^1.11.7
   https-browserify: ^1.0.0
   i18next: ^20.1.0
   i18next-browser-languagedetector: ^6.1.1
@@ -41,10 +42,10 @@ specifiers:
 
 dependencies:
   '@ant-design/icons': 5.0.1_biqbaboplfbrettd7655fr4n2y
-  '@refinedev/antd': 5.13.2_2ryt6f3pms66e6u7rz5qd4wyha
+  '@refinedev/antd': 5.13.2_eylcjwoggugl4ziw2ykdjr66na
   '@refinedev/cli': 2.5.3_pofolu2o2erjq4lhyzl3hqovzq
   '@refinedev/core': 4.14.0_ddal5w4bzhvnvvplv3twufcima
-  '@refinedev/inferencer': 3.3.0_mru7nh2txoln6gvfzbkgq6kmdy
+  '@refinedev/inferencer': 3.3.0_cmwt3tzl3ydl6giuaxa4d2qqti
   '@refinedev/kbar': 1.1.0_cgngb5ydpkqame3rvs3dxr3n5q
   '@refinedev/react-router-v6': 4.1.0_qfmh5uvrjhk5hbdyw76cdaer2y
   '@refinedev/supabase': 5.3.0_@refinedev+core@4.14.0
@@ -53,6 +54,7 @@ dependencies:
   buffer: 6.0.3
   casbin: 5.26.1
   crypto-browserify: 3.12.0
+  dayjs: 1.11.7
   i18next: 20.6.1
   i18next-browser-languagedetector: 6.1.8
   i18next-xhr-backend: 3.2.2
@@ -2397,13 +2399,14 @@ packages:
     resolution: {integrity: sha512-Ba7HmkFgfQxZqqaeIWWkNK0rEhpxVQHIoVyW1YDSkGsGIXzcaW4deC8B0pZrNSSyLTdIk7y+5olKt5+g0GmFIQ==}
     dev: false
 
-  /@refinedev/antd/5.13.2_2ryt6f3pms66e6u7rz5qd4wyha:
+  /@refinedev/antd/5.13.2_eylcjwoggugl4ziw2ykdjr66na:
     resolution: {integrity: sha512-z6UAAPyUjSgQ10o0O6Hs5MNHT+gE6c+SiNJhjNmA6pficozTXG9Y/44Dps3PrU6OzTQNTdlsg6cTr9MqzgwS2g==}
     peerDependencies:
       '@refinedev/core': ^4.0.0
       '@types/react': ^17.0.0 || ^18.0.0
       '@types/react-dom': ^17.0.0 || ^18.0.0
       antd: ^5.0.5
+      dayjs: ^1.10.7
       react: ^17.0.0 || ^18.0.0
       react-dom: ^17.0.0 || ^18.0.0
     dependencies:
@@ -2495,7 +2498,7 @@ packages:
       - react-native
     dev: false
 
-  /@refinedev/inferencer/3.3.0_mru7nh2txoln6gvfzbkgq6kmdy:
+  /@refinedev/inferencer/3.3.0_cmwt3tzl3ydl6giuaxa4d2qqti:
     resolution: {integrity: sha512-Z4xNJyIrdJxK5x7RItTjbt5hWJuwJ2cOHKWJnp/6A7QgTYuR6+1XWVVoM0qAgDEIuErLozbcL4B4Z1Zs9UdTYg==}
     peerDependencies:
       '@ant-design/icons': ^5.0.1
@@ -2520,6 +2523,7 @@ packages:
       '@types/react': ^17.0.0 || ^18.0.0
       '@types/react-dom': ^17.0.0 || ^18.0.0
       antd: ^5.0.3
+      dayjs: ^1.10.7
       react: ^17.0.0 || ^18.0.0
       react-dom: ^17.0.0 || ^18.0.0
       react-hook-form: ^7.30.0
@@ -2567,7 +2571,7 @@ packages:
     dependencies:
       '@aliemir/react-live': 4.0.0_react@18.2.0
       '@ant-design/icons': 5.0.1_biqbaboplfbrettd7655fr4n2y
-      '@refinedev/antd': 5.13.2_2ryt6f3pms66e6u7rz5qd4wyha
+      '@refinedev/antd': 5.13.2_eylcjwoggugl4ziw2ykdjr66na
       '@refinedev/core': 4.14.0_ddal5w4bzhvnvvplv3twufcima
       '@tabler/icons': 1.119.0_biqbaboplfbrettd7655fr4n2y
       '@types/react': 18.0.33
