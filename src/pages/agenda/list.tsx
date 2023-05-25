@@ -6,21 +6,32 @@ import {
     EditButton,
     ShowButton,
     DateField,
-    getDefaultSortOrder
+    getDefaultSortOrder,
+    FilterDropdown,
+    SaveButton
 } from "@refinedev/antd";
-import { Table, Space } from "antd";
+import { Table, Space, Radio, Form, Input } from "antd";
 
 export const AgendaList: React.FC<IResourceComponentsProps> = () => {
-    const { tableProps, sorter } = useTable({
+    const { tableProps, sorter, searchFormProps } = useTable({
       syncWithLocation: true,
       sorters: {
-          initial: [
-            {
-                field: "debut",
-                order: "desc",
-            },
-          ],
-        },  
+        initial: [
+          {
+              field: "debut",
+              order: "desc",
+          },
+        ],
+      },
+      onSearch: (values: any) => {
+        return [
+          {
+            field: "titre",
+            operator: "contains",
+            value: values.titre,
+          },
+        ];
+      },
     });
 
     const { data: lieuData, isLoading: lieuIsLoading } = useMany({
@@ -45,6 +56,12 @@ export const AgendaList: React.FC<IResourceComponentsProps> = () => {
 
     return (
         <List>
+          <Form {...searchFormProps} layout="inline">
+              <Form.Item name="titre">
+                  <Input placeholder="Rechercher par titre" />
+              </Form.Item>
+              <SaveButton onClick={searchFormProps.form?.submit} />
+          </Form>
             <Table {...tableProps} rowKey="id">
                 <Table.Column
                     dataIndex={["debut"]}
@@ -70,6 +87,15 @@ export const AgendaList: React.FC<IResourceComponentsProps> = () => {
                             `${statutData?.data?.find((item) => item.id === value)?.nom_statut}`
                         )
                     }
+                    filterDropdown={(props) => (
+                        <FilterDropdown {...props}>
+                            <Radio.Group>
+                                <Radio value="2">en attente</Radio>
+                                <Radio value="1">confirme</Radio>
+                                <Radio value="3">annule</Radio>
+                            </Radio.Group>
+                        </FilterDropdown>
+                    )}
                 />
                 <Table.Column
                     dataIndex={["lieu"]}
