@@ -30,14 +30,6 @@ export const AgendaList: React.FC<IResourceComponentsProps> = () => {
         },
     });
 
-    // const { data: usersData, isLoading: usersIsLoading } = useMany({
-    //     resource: "users",
-    //     ids: tableProps?.dataSource?.map((item) => item?.users) ?? [],
-    //     queryOptions: {
-    //         enabled: !!tableProps?.dataSource,
-    //     },
-    // });
-
     const { data: usersData, isLoading: usersIsLoading } = useList({
         resource: "users",
     });
@@ -56,19 +48,8 @@ export const AgendaList: React.FC<IResourceComponentsProps> = () => {
                     title="Fin"
                     render={(value: any) => <DateField value={value} />}
                 />
-                <Table.Column dataIndex="frequence" title="Frequence" />
-                <Table.Column dataIndex="objet" title="Objet" />
-                <Table.Column
-                    dataIndex={["lieu"]}
-                    title="Lieu"
-                    render={(value: any) =>
-                        lieuIsLoading ? (
-                            <>Loading...</>
-                        ) : (
-                            `${lieuData?.data?.find((item) => item.id === value)?.nom_lieu}`
-                        )
-                    }
-                />
+                <Table.Column dataIndex="titre" title="Titre" />
+                <Table.Column dataIndex="objectif" title="Objectif" />
                 <Table.Column
                     dataIndex={["statut"]}
                     title="Statut"
@@ -81,17 +62,19 @@ export const AgendaList: React.FC<IResourceComponentsProps> = () => {
                     }
                 />
                 <Table.Column
-                    dataIndex="nombre_participant"
-                    title="Nombre Participant"
+                    dataIndex={["lieu"]}
+                    title="Lieu"
+                    render={(value) =>
+                        lieuIsLoading ? (
+                            <>Loading...</>
+                        ) : (
+                            `${lieuData?.data?.find((item) => item.id === value)?.nom_lieu}`
+                        )
+                    }
                 />
                 <Table.Column
-                    dataIndex={["date_modification"]}
-                    title="Date Modification"
-                    render={(value: any) => <DateField value={value} />}
-                />
-                <Table.Column
-                  dataIndex="created_by"
-                  title="Created By"
+                  dataIndex="emetteur"
+                  title="Emetteur"
                   render={(value) =>
                     usersIsLoading ? (
                         <>Loading...</>
