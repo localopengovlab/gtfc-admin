@@ -6,12 +6,21 @@ import {
     EditButton,
     ShowButton,
     DateField,
+    getDefaultSortOrder
 } from "@refinedev/antd";
 import { Table, Space } from "antd";
 
 export const AgendaList: React.FC<IResourceComponentsProps> = () => {
-    const { tableProps } = useTable({
-        syncWithLocation: true,
+    const { tableProps, sorter } = useTable({
+      syncWithLocation: true,
+      sorters: {
+          initial: [
+            {
+                field: "debut",
+                order: "desc",
+            },
+          ],
+        },  
     });
 
     const { data: lieuData, isLoading: lieuIsLoading } = useMany({
@@ -37,10 +46,11 @@ export const AgendaList: React.FC<IResourceComponentsProps> = () => {
     return (
         <List>
             <Table {...tableProps} rowKey="id">
-                <Table.Column dataIndex="id" title="Id" />
                 <Table.Column
                     dataIndex={["debut"]}
                     title="Debut"
+                    sorter={{ multiple: 2 }}
+                    defaultSortOrder={getDefaultSortOrder("id", sorter)}
                     render={(value: any) => <DateField value={value} format="LLL" />}
                 />
                 <Table.Column
