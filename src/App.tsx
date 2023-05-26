@@ -20,7 +20,7 @@ import routerBindings, {
   UnsavedChangesNotifier,
 } from "@refinedev/react-router-v6";
 import { useTranslation } from "react-i18next";
-import { Home } from "pages/demo/home";
+import { Home } from "pages/home";
 import { AuthPage } from "pages/auth";
 import { RegisterPage } from "pages/auth/register";
 import { GoogleOutlined } from "@ant-design/icons";
@@ -43,6 +43,8 @@ import { ColorModeContextProvider } from "./contexts/color-mode";
 import { Header } from "./components/header";
 import { authProvider, accessControlProvider } from "providers";
 import { Title } from "./components/layout";
+import { CalendarOutlined, SettingOutlined } from "@ant-design/icons";
+import 'dayjs/locale/fr'
 
 function App() {
   const { t, i18n } = useTranslation();
@@ -68,11 +70,11 @@ function App() {
             resources={[
               {
                 name: "tableau_de_bord",
-                list: "/demo/home"
+                list: "accueil"
               },
               {
                 name: "reunion",
-                meta: { label: "Réunions" }
+                meta: { label: "Réunions", icon: <CalendarOutlined /> }
               },
               {
                 name: "agenda",
@@ -82,12 +84,12 @@ function App() {
                 show: "/reunion/agenda/show/:id",
                 meta: {
                     canDelete: true,
-                    parent: "reunion"
+                    parent: "reunion",
                 },
               },
               {
                 name: "reglage",
-                meta: { label: "Réglages" }
+                meta: { label: "Réglages", icon: <SettingOutlined /> }
               },
               {
                 name: "users",
@@ -96,7 +98,7 @@ function App() {
                 meta: {
                     parent: "reglage",
                     label: "Utilisateurs",
-                    canDelete: true,
+                    canDelete: true
                 },
               },
               {
@@ -174,7 +176,7 @@ function App() {
                     />
                   </Route>
                 </Route>
-                <Route path="/demo/home" element={<Home/>} />
+                <Route path="accueil" element={<Home/>} />
                 <Route path="reglage">
                   <Route path="utilisateurs">
                     <Route index element={<UtilisateurList />} />
