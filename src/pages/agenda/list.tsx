@@ -1,5 +1,5 @@
 import React from "react";
-import { IResourceComponentsProps, BaseRecord, useMany, useList } from "@refinedev/core";
+import { IResourceComponentsProps, BaseRecord, useMany, useList, useGetLocale } from "@refinedev/core";
 import {
     useTable,
     List,
@@ -10,9 +10,15 @@ import {
     FilterDropdown,
     SaveButton
 } from "@refinedev/antd";
-import { Table, Space, Radio, Form, Input } from "antd";
+import { Table, Space, Radio, Form, Input, Tag } from "antd";
 
 export const AgendaList: React.FC<IResourceComponentsProps> = () => {
+
+    const locale = useGetLocale();
+    const currentLocale = locale();
+
+    console.log(currentLocale);
+
     const { tableProps, sorter, searchFormProps } = useTable({
       syncWithLocation: true,
       sorters: {
@@ -68,25 +74,37 @@ export const AgendaList: React.FC<IResourceComponentsProps> = () => {
                     title="Debut"
                     sorter={{ multiple: 2 }}
                     defaultSortOrder={getDefaultSortOrder("id", sorter)}
-                    render={(value: any) => <DateField value={value} format="LLL" />}
+                    render={(value: any) => <DateField value={value} locales={currentLocale} format="dddd DD MMMM YYYY - HH:mm" />}
                 />
                 <Table.Column
                     dataIndex={["fin"]}
                     title="Fin"
-                    render={(value: any) => <DateField value={value} format="LLL" />}
+                    render={(value: any) => <DateField value={value} locales={currentLocale} format="dddd DD MMMM YYYY - HH:mm" />}
                 />
                 <Table.Column dataIndex="titre" title="Titre" />
-                <Table.Column dataIndex="objectif" title="Objectif" />
                 <Table.Column
                     dataIndex={["statut"]}
                     title="Statut"
-                    render={(value) =>
-                        statutIsLoading ? (
-                            <>Loading...</>
-                        ) : (
-                            `${statutData?.data?.find((item) => item.id === value)?.nom_statut}`
-                        )
-                    }
+                        render={(value) => {
+                          const statut = statutData?.data?.find((item) => item.id === value)?.nom_statut;
+                          const isLoading = statutIsLoading || !statutData;
+
+                          let tagColor = "default";
+
+                          if (statut === "confirme") {
+                              tagColor = "success";
+                          } else if (statut === "en attente") {
+                              tagColor = "warning";
+                          } else if (statut === "annule") {
+                              tagColor = "error";
+                          }
+
+                          return (
+                              <Tag color={tagColor}>
+                                  {isLoading ? "Loading..." : statut}
+                              </Tag>
+                          );
+                      }}
                     filterDropdown={(props) => (
                         <FilterDropdown {...props}>
                             <Radio.Group>
