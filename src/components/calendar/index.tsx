@@ -31,7 +31,7 @@ const getMonthData = (value: Dayjs) => {
 };
 
 export const Calendrier: React.FC = () => {
-  const { data: agendaData, isLoading: agendaIsLoading } = useList({
+  const { data: agendaData } = useList({
     resource: "agenda",
     sorters: [
       {
