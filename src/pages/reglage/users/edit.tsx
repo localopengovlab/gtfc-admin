@@ -53,11 +53,6 @@ export const UtilisateurEdit: React.FC<IResourceComponentsProps> = () => {
                 <Form.Item
                     label="Bureau"
                     name={"bureau"}
-                    rules={[
-                        {
-                            required: true,
-                        },
-                    ]}
                 >
                     <Select {...bureauSelectProps} />
                 </Form.Item>
@@ -85,11 +80,6 @@ export const UtilisateurEdit: React.FC<IResourceComponentsProps> = () => {
                         })}
                         getValueFromEvent={getValueFromEvent}
                         noStyle
-                        rules={[
-                            {
-                                required: true,
-                            },
-                        ]}
                     >
                         <Upload.Dragger
                             listType="picture"
