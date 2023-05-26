@@ -127,11 +127,6 @@ export const AgendaEdit: React.FC<IResourceComponentsProps> = () => {
                 <Form.Item
                     label="Animateur"
                     name={["animateur"]}
-                    rules={[
-                        {
-                            required: true,
-                        },
-                    ]}
                 >
                     <Input />
                 </Form.Item>
