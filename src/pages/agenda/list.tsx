@@ -17,8 +17,6 @@ export const AgendaList: React.FC<IResourceComponentsProps> = () => {
     const locale = useGetLocale();
     const currentLocale = locale();
 
-    console.log(currentLocale);
-
     const { tableProps, sorter, searchFormProps } = useTable({
       syncWithLocation: true,
       sorters: {
