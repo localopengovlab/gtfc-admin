@@ -44,7 +44,7 @@ import { Header } from "./components/header";
 import { authProvider, accessControlProvider } from "providers";
 import { Title } from "./components/layout";
 import { CalendarOutlined, SettingOutlined } from "@ant-design/icons";
-import 'dayjs/locale/fr'
+import 'dayjs/locale/fr';
 
 function App() {
   const { t, i18n } = useTranslation();
@@ -152,12 +152,6 @@ function App() {
                 <Route
                   index
                   element={<NavigateToResource resource="tableau_de_bord" />}
-                />
-                <Route
-                    index
-                    element={
-                        <NavigateToResource resource="samples" />
-                    }
                 />
                 <Route path="reunion">
                   <Route path="agenda">
