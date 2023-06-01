@@ -5,7 +5,7 @@ import { PickerLocale } from 'antd/lib/date-picker/generatePicker';
 import type { Dayjs } from 'dayjs';
 import dayLocaleData from 'dayjs/plugin/localeData';
 import type { CellRenderInfo } from 'rc-picker/lib/interface';
-import { useList, useGetLocale } from "@refinedev/core";
+import { useList, useGetLocale, useLink } from "@refinedev/core";
 import dayjs from 'dayjs';
 
 dayjs.extend(dayLocaleData);
@@ -23,7 +23,7 @@ const getListData = (value: any) => {
     } else if (event.statut === 3) {
         tagColor = "error";
     }
-    return { type: tagColor, content: event.titre }
+    return { id: event.id, type: tagColor, content: event.titre }
   });
 
   return listData || [];
@@ -101,6 +101,8 @@ export const Calendrier: React.FC = () => {
   const [selectedValue, setSelectedValue] = useState(() => dayjs());
   const agendaData = useFetchAgendaData(selectedValue);
 
+  const Link = useLink();
+
   const onPanelChange = (newValue: Dayjs) => {
     setCurrentDate(newValue);
     setSelectedValue(newValue);
@@ -118,7 +120,9 @@ export const Calendrier: React.FC = () => {
       <ul className="events" style={{listStyle:"none",padding:0}}>
         {listData.map((item: any) => (
           <li key={item.content}>
-            <Badge status={item.type as BadgeProps['status']} text={item.content} />
+            <Link to={`../reunion/agenda/show/${item.id}`}>
+              <Badge status={item.type as BadgeProps['status']} text={item.content} />
+            </Link>
           </li>
         ))}
       </ul>
