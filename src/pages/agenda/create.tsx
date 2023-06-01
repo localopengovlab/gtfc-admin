@@ -2,6 +2,7 @@ import React from "react";
 import { IResourceComponentsProps, useGetIdentity } from "@refinedev/core";
 import { Create, useForm, useSelect } from "@refinedev/antd";
 import { Form, Input, DatePicker, Select, InputNumber } from "antd";
+import MDEditor from "@uiw/react-md-editor";
 import dayjs from "dayjs";
 
 type IUser = {
@@ -99,7 +100,7 @@ export const AgendaCreate: React.FC<IResourceComponentsProps> = () => {
                     label="Pour Info"
                     name={["pour_info"]}
                 >
-                    <Input />
+                    <MDEditor/>
                 </Form.Item>
                 <Form.Item
                     label="Nombre Participant"

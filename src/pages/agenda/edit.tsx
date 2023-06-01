@@ -1,7 +1,8 @@
 import React from "react";
-import { IResourceComponentsProps } from "@refinedev/core";
+import { IResourceComponentsProps, useOne } from "@refinedev/core";
 import { Edit, useForm, useSelect } from "@refinedev/antd";
 import { Form, Input, DatePicker, Select } from "antd";
+import MDEditor from "@uiw/react-md-editor";
 import dayjs from "dayjs";
 
 export const AgendaEdit: React.FC<IResourceComponentsProps> = () => {
@@ -20,6 +21,11 @@ export const AgendaEdit: React.FC<IResourceComponentsProps> = () => {
         optionLabel: "nom_statut",
         defaultValue: agendaData?.statut,
     });
+
+    const {data: emetteurData, isLoading: emetteurIsLoading} = useOne({
+      resource: "users",
+      id: agendaData?.emetteur
+    })
 
     return (
         <Edit saveButtonProps={saveButtonProps}>
@@ -111,7 +117,7 @@ export const AgendaEdit: React.FC<IResourceComponentsProps> = () => {
                     label="Pour Info"
                     name={["pour_info"]}
                 >
-                    <Input />
+                    <MDEditor/>
                 </Form.Item>
                 <Form.Item
                     label="Nombre Participant"
@@ -131,7 +137,7 @@ export const AgendaEdit: React.FC<IResourceComponentsProps> = () => {
                     <Input />
                 </Form.Item>
                 <Form.Item
-                    label="Emetteur"
+                    label={emetteurIsLoading ? <>Loading...</> : <>Emetteur: {emetteurData?.data?.full_name}</>}
                     name={["emetteur"]}
                     rules={[
                         {
