@@ -1,10 +1,13 @@
-import { Show } from "@refinedev/antd";
+import { List } from "@refinedev/antd";
+import { Card } from 'antd';
 import { Calendrier } from "../../components/calendar";
 
 export const Home: React.FC = () => {
-    return (
-        <Show title="Tableau de bord">
-            <Calendrier/>
-        </Show>
-    );
+  return (
+    <List title="Tableau de bord">
+      <Card>
+        <Calendrier/>
+      </Card>
+    </List>
+  );
 };
