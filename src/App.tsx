@@ -9,7 +9,6 @@ import {
   notificationProvider,
   ThemedLayout,
 } from "@refinedev/antd";
-import { AntdInferencer } from "@refinedev/inferencer/antd";
 import "@refinedev/antd/dist/reset.css";
 
 import { dataProvider, liveProvider } from "@refinedev/supabase";
@@ -37,7 +36,7 @@ import {
   BureauCreate,
   BureauEdit
 } from "pages/reglage";
-import { AgendaList, AgendaCreate, AgendaEdit } from 'pages/agenda'
+import { AgendaList, AgendaCreate, AgendaEdit, AgendaShow } from 'pages/agenda'
 import { supabaseGtfc } from "utility";
 import { ColorModeContextProvider } from "./contexts/color-mode";
 import { Header } from "./components/header";
@@ -166,7 +165,7 @@ function App() {
                     />
                     <Route
                         path="show/:id"
-                        element={<AntdInferencer />}
+                        element={<AgendaShow />}
                     />
                   </Route>
                 </Route>
