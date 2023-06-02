@@ -86,7 +86,8 @@
         "undo": "Annuler",
         "import": "Importer",
         "clone": "Dupliquer",
-        "notAccessTitle": "Vous n'avez pas accès"
+        "notAccessTitle": "Vous n'avez pas accès",
+        "search": "Recherche"
     },
     "warnWhenUnsavedChanges": "Êtes-vous sûr(e) de vouloir quitter ? Vous avez des changements non enregistrés.",
     "notifications": {
@@ -141,5 +142,8 @@
     },
     "table": {
         "actions": "Actions"
+    },
+    "agenda": {
+        "searchPlaceholder": "Rechercher par titre"
     }
 }

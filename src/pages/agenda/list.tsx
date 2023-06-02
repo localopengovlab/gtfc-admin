@@ -8,14 +8,16 @@ import {
     DateField,
     getDefaultSortOrder,
     FilterDropdown,
-    SaveButton
 } from "@refinedev/antd";
-import { Table, Space, Radio, Form, Input, Tag } from "antd";
+import { SearchOutlined } from '@ant-design/icons';
+import { Table, Space, Radio, Form, Input, Tag, Button } from "antd";
+import { useTranslation } from "react-i18next";
 
 export const AgendaList: React.FC<IResourceComponentsProps> = () => {
 
     const locale = useGetLocale();
     const currentLocale = locale();
+    const { t } = useTranslation();
 
     const { tableProps, sorter, searchFormProps } = useTable({
       syncWithLocation: true,
@@ -62,9 +64,11 @@ export const AgendaList: React.FC<IResourceComponentsProps> = () => {
         <List>
           <Form {...searchFormProps} layout="inline">
               <Form.Item name="titre">
-                  <Input placeholder="Rechercher par titre" />
+                  <Input placeholder={t('agenda.searchPlaceholder')} />
               </Form.Item>
-              <SaveButton onClick={searchFormProps.form?.submit} />
+              <Button type="primary" onClick={searchFormProps.form?.submit} icon={<SearchOutlined />}>
+                {t('buttons.search')}
+              </Button>
           </Form>
             <Table {...tableProps} rowKey="id">
                 <Table.Column

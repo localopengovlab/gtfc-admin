@@ -86,7 +86,8 @@
     "undo": "Undo",
     "import": "Import",
     "clone": "Clone",
-    "notAccessTitle": "You don't have permission to access"
+    "notAccessTitle": "You don't have permission to access",
+    "search": "Search"
   },
   "warnWhenUnsavedChanges": "Are you sure you want to leave? You have unsaved changes.",
   "notifications": {
@@ -141,5 +142,8 @@
   },
   "table": {
     "actions": "Actions"
+  },
+  "agenda": {
+    "searchPlaceholder": "Search by title"
   }
 }
