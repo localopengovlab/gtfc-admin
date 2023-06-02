@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import type { BadgeProps } from 'antd';
-import { Badge, Calendar,  Col, Row, Select } from 'antd';
+import { Badge, Calendar, Col, Row, Select, Button, Space } from 'antd';
 import { PickerLocale } from 'antd/lib/date-picker/generatePicker';
 import type { Dayjs } from 'dayjs';
 import dayLocaleData from 'dayjs/plugin/localeData';
 import type { CellRenderInfo } from 'rc-picker/lib/interface';
 import { useList, useGetLocale, useLink } from "@refinedev/core";
 import dayjs from 'dayjs';
+import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 
 dayjs.extend(dayLocaleData);
 
@@ -97,6 +98,11 @@ export const Calendrier: React.FC = () => {
   },
 };
 
+const handlePreviousMonth = () => {
+  setCurrentDate((prevDate) => prevDate.subtract(1, 'month'));
+  setSelectedValue((prevValue) => prevValue.subtract(1, 'month'));
+};
+
   const [currentDate, setCurrentDate] = useState(() => dayjs());
   const [selectedValue, setSelectedValue] = useState(() => dayjs());
   const agendaData = useFetchAgendaData(selectedValue);
@@ -129,6 +135,11 @@ export const Calendrier: React.FC = () => {
     );
   };
 
+  const handleNextMonth = () => {
+    setCurrentDate((prevDate) => prevDate.add(1, 'month'));
+    setSelectedValue((prevValue) => prevValue.add(1, 'month'));
+  };
+
   const cellRender = (current: Dayjs, info: CellRenderInfo<Dayjs>) => {
     if (info.type === 'date') return dateCellRender(current);
     return info.originNode;
@@ -141,66 +152,76 @@ export const Calendrier: React.FC = () => {
     onPanelChange={onPanelChange}
     mode='month'
     headerRender={({ value, onChange }) => {
-          const start = 0;
-          const end = 12;
-          const monthOptions = [];
+      const start = 0;
+      const end = 12;
+      const monthOptions = [];
 
-          const localeData = value.localeData();
-          const months = localeData.monthsShort();
+      const localeData = value.localeData();
+      const months = localeData.monthsShort();
 
-          const monthsInFrench = months.map((month, index) =>
-            dayjs().locale(currentLocale).month(index).format('MMMM')
-          );
+      const monthsInFrench = months.map((month, index) =>
+        dayjs().locale(currentLocale).month(index).format('MMMM')
+      );
 
-          for (let i = start; i < end; i++) {
-            monthOptions.push(
-              <Select.Option key={i} value={i} className="month-item">
-                {monthsInFrench[i]}
-              </Select.Option>,
-            );
-          }
+      for (let i = start; i < end; i++) {
+        monthOptions.push(
+          <Select.Option key={i} value={i} className="month-item">
+            {monthsInFrench[i]}
+          </Select.Option>,
+        );
+      }
 
-          const year = value.year();
-          const month = value.month();
-          const options = [];
-          for (let i = year - 10; i < year + 10; i += 1) {
-            options.push(
-              <Select.Option key={i} value={i} className="year-item">
-                {i}
-              </Select.Option>,
-            );
-          }
-          return (
-              <Row justify="end" gutter={8}>
-                <Col>
-                  <Select
-                    size="small"
-                    dropdownMatchSelectWidth={false}
-                    className="my-year-select"
-                    value={year}
-                    onChange={(newYear) => {
-                      const now = value.clone().year(newYear);
-                      onChange(now);
-                    }}
-                  >
-                    {options}
-                  </Select>
-                </Col>
-                <Col>
-                  <Select
-                    size="small"
-                    dropdownMatchSelectWidth={false}
-                    value={month}
-                    onChange={(newMonth) => {
-                      const now = value.clone().month(newMonth);
-                      onChange(now);
-                    }}
-                  >
-                    {monthOptions}
-                  </Select>
-                </Col>
-              </Row>
-          );
-        }}
+      const year = value.year();
+      const month = value.month();
+      const options = [];
+      for (let i = year - 10; i < year + 10; i += 1) {
+        options.push(
+          <Select.Option key={i} value={i} className="year-item">
+            {i}
+          </Select.Option>,
+        );
+      }
+      return (
+        <Row justify="end" gutter={8}>
+          <Col>
+            <Space>
+              <Space.Compact direction="horizontal">
+                <Button 
+                  shape="circle"
+                  icon={<LeftOutlined />}
+                  onClick={handlePreviousMonth} />
+                <Select
+                  size="small"
+                  dropdownMatchSelectWidth={false}
+                  className="my-year-select"
+                  value={year}
+                  onChange={(newYear) => {
+                    const now = value.clone().year(newYear);
+                    onChange(now);
+                  }}
+                >
+                  {options}
+                </Select>
+                <Select
+                  size="small"
+                  dropdownMatchSelectWidth={false}
+                  value={month}
+                  onChange={(newMonth) => {
+                    const now = value.clone().month(newMonth);
+                    onChange(now);
+                  }}
+                >
+                  {monthOptions}
+                </Select>
+                <Button 
+                  shape="circle"
+                  icon={<RightOutlined />}
+                  onClick={handleNextMonth} />
+                </Space.Compact>
+            </Space>
+          </Col>
+        </Row>
+      );
+    }}
     />;
 };
