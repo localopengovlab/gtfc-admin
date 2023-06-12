@@ -42,6 +42,19 @@ export const AgendaCreate: React.FC<IResourceComponentsProps> = () => {
                         {
                             required: true,
                         },
+                        ({ getFieldValue }) => ({
+                          validator(_, value) {
+                            if (!value || !getFieldValue("fin")) {
+                              return Promise.resolve();
+                            }
+                            if (dayjs(value).isBefore(getFieldValue("fin"))) {
+                              return Promise.resolve();
+                            }
+                            return Promise.reject(
+                              new Error("La date de début doit être plus petite que la date de fin.")
+                            );
+                          },
+                        }),
                     ]}
                     getValueProps={(value) => ({
                         value: value ? dayjs(value) : undefined,
@@ -56,6 +69,19 @@ export const AgendaCreate: React.FC<IResourceComponentsProps> = () => {
                         {
                             required: true,
                         },
+                        ({ getFieldValue }) => ({
+                          validator(_, value) {
+                            if (!value || !getFieldValue("debut")) {
+                              return Promise.resolve();
+                            }
+                            if (dayjs(value).isAfter(getFieldValue("debut"))) {
+                              return Promise.resolve();
+                            }
+                            return Promise.reject(
+                              new Error("La date de fin doit être plus grande que la date de début.")
+                            );
+                          },
+                        }),
                     ]}
                     getValueProps={(value) => ({
                         value: value ? dayjs(value) : undefined,
