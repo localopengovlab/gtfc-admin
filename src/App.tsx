@@ -36,7 +36,8 @@ import {
   BureauCreate,
   BureauEdit
 } from "pages/reglage";
-import { AgendaList, AgendaCreate, AgendaEdit, AgendaShow } from 'pages/agenda'
+import { AgendaList, AgendaCreate, AgendaEdit, AgendaShow } from 'pages/agenda';
+import { CompteRenduList, CompteRenduEdit, CompteRenduShow } from 'pages/compterendu';
 import { supabaseGtfc } from "utility";
 import { ColorModeContextProvider } from "./contexts/color-mode";
 import { Header } from "./components/header";
@@ -84,6 +85,17 @@ function App() {
                 meta: {
                     canDelete: true,
                     parent: "reunion",
+                },
+              },
+              {
+                name: "compterendu",
+                list: "/reunion/compte_rendu",
+                edit: "/reunion/compte_rendu/edit/:id",
+                show: "/reunion/compte_rendu/show/:id",
+                meta: {
+                    canDelete: true,
+                    parent: "reunion",
+                    label: "Compte rendu",
                 },
               },
               {
@@ -166,6 +178,17 @@ function App() {
                     <Route
                         path="show/:id"
                         element={<AgendaShow />}
+                    />
+                  </Route>
+                  <Route path="compte_rendu">
+                    <Route index element={<CompteRenduList />} />
+                    <Route
+                        path="edit/:id"
+                        element={<CompteRenduEdit />}
+                    />
+                    <Route
+                        path="show/:id"
+                        element={<CompteRenduShow />}
                     />
                   </Route>
                 </Route>

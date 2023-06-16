@@ -28,8 +28,11 @@ export const adapter = new StringAdapter(`
   p, admin, reunion, list
   p, admin, reunion/*, list
   
-  p, admin, agenda, (list)|(create)|(edit)|(show)
+  p, admin, agenda, (list)|(create)|(edit)|(show)|(delete)
   p, admin, agenda/*, (edit)|(show)|(delete)
+
+  p, admin, compterendu, (list)|(edit)|(show)|(delete)
+  p, admin, compterendu/*, (edit)|(show)
 
   p, admin, bureau, (list)|(create)|(edit)|(delete)
   p, admin, bureau/*, (edit)|(show)|(delete)
@@ -47,5 +50,8 @@ export const adapter = new StringAdapter(`
 
   p, editeur, agenda, (list)|(show)|(create)
   p, editeur, agenda/*, (edit)|(show)
+
+  p, editeur, compterendu, (list)|(edit)|(show)
+  p, editeur, compterendu/*, (edit)|(show)
 
 `);
